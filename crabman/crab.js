@@ -36,9 +36,9 @@ function paletteToCode(paletteInput){
 }
 
 function setup(){
-	createPaletteDisplays(palettes);
+	// createPaletteDisplays(palettes);
 	
-	changePalette('forest');
+	changePalette('dark');
 
 	// let settingString = 'M '
 
