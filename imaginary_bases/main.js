@@ -31,10 +31,11 @@ function draw(){
 
 
 	// updateMovement(false);
+	console.log(mouseOverMenu(),menuLimit);
 	if (dragged > -1){
 		setDigit(addC(draggedSubFocus, focusPrincipal), dragged);
 		document.body.style.cursor = 'grabbing';
-	} else if (!mouseOverMenu() && getMouseInt()>0){
+	} else if (!mouseOverMenu() && getMouseInt()>0 && !hideCanvas){
 		document.body.style.cursor = 'grab';
 	} else {
 		document.body.style.cursor = 'default';
@@ -147,7 +148,6 @@ function setup() {
 
 
 var portrait;
-var deleteLimit;
 function setupLayout(){
 	portrait = width*5 < height*4;
 
@@ -167,13 +167,13 @@ function setOriginAndGrid(){
 
 	if (portrait){	
 		defaultOrigin = createVector(width*0.5,height*0.5-(menuHidden?0:width*0.26));
-		deleteLimit = height-(menuHidden?0:width*0.51);
-		grid = new Grid(0,deleteLimit,width,0,width*0.008,true,'half','backlight',grid.visible);
+		menuLimit = height-(menuHidden?0:width*0.51);
+		grid = new Grid(0,menuLimit,width,0,width*0.008,true,'half','backlight',grid.visible);
 
 	} else {
 		defaultOrigin = createVector(width*0.5+(menuHidden?0:height*0.15),height*0.5);
-		deleteLimit = (menuHidden?0:height*0.3);
-		grid = new Grid(deleteLimit,height,width,0,height*0.006,true,'half','backlight',grid.visible);
+		menuLimit = (menuHidden?0:height*0.3);
+		grid = new Grid(menuLimit,height,width,0,height*0.006,true,'half','backlight',grid.visible);
 	}
 }
 

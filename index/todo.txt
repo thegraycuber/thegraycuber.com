@@ -1,3 +1,4 @@
 
-animate based on true time, not frames you goof
+link to slides video
+new hexponents image
 use local storage for palettes

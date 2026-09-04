@@ -353,7 +353,7 @@ icon-menu{
   height: 15px;
   border-radius: 50%; 
   background: var(--color-front);
-  cursor: pointer;
+  cursor: grab;
 }
 
 .slider::-moz-range-thumb {
@@ -361,7 +361,7 @@ icon-menu{
   height: 12px;
   border-radius: 50%;
   background: var(--color-front);
-  cursor: pointer;
+  cursor: grab;
 }
 
 .slider:disabled {

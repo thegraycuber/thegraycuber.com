@@ -1,6 +1,7 @@
 
 var spinShape = true;
 var hideCanvas = false;
+var lastDisplay;
 
 function draw(){
 	
@@ -13,13 +14,14 @@ function draw(){
 	updateIdeal();
 	
 	if (spinShape){
-		let resAngle = PI/360;
+		let resAngle = (Date.now()-lastDisplay)*0.0003;
 		rotationAngle = (resAngle+rotationAngle)%TWO_PI;
 		shape.rotate(resAngle);
 		if (gameMode){
 			targetShape.rotate(resAngle);
 		}
 	}
+	lastDisplay = Date.now();
 	
 	translate(origin.x, origin.y);
 	scale(scalar,scalar);
@@ -170,6 +172,8 @@ function setup() {
 
 	randomize();
 	setIdeal([-0.3,-0.2]);
+
+	lastDisplay = Date.now();
 }
 
 var portrait;
@@ -183,6 +187,7 @@ function setupLayout(){
 		circleWidth = width*0.03;
 		defaultScalar = min(width,height-width*0.47)*0.32;
 		defaultOrigin = createVector(width*0.5,height*0.5-(menuHidden?width*-0.05:width*0.23));
+		menuLimit = height-(menuHidden?0:width*0.46);
 		grid = new Grid(0,height-(menuHidden?0:width*0.50),width,0,width*0.05,false,'label');
 
 		labelLayout = [[width*0.5,0,width*0.6,width*0.28,width*0.03],
@@ -195,6 +200,7 @@ function setupLayout(){
 		circleWidth = height*0.02;
 		defaultScalar = min(height,width-height*0.3)*0.25;
 		defaultOrigin = createVector(width*0.5+(menuHidden?0:height*0.15),height*0.5);
+		menuLimit = (menuHidden?0:height*0.3);
 		grid = new Grid((menuHidden?0:height*0.32),height,width,0,height*0.03,false,'label');
 
 		labelLayout = [[width,height,height*0.7,height*0.18,height*0.02],

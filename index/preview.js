@@ -456,6 +456,7 @@ var explorerGroups = [
 var hyperShape;
 var hyperAng = 0;
 function hyperPrep(){
+	lastDisplay = Date.now();
 	hyperShape = new HyperShape(floor(random()*5+4));
 }
 
@@ -470,7 +471,9 @@ function hyperDraw(){
 		hyperIdeal = [(mouseX-width/2)/unit, -(mouseY-height/2)/unit];
 	}
 
-	hyperShape.rotate(PI/360);
+	hyperShape.rotate((Date.now()-lastDisplay)*0.0003);
+	lastDisplay = Date.now();
+
 	hyperShape.displayOutput();
 }
 
@@ -738,7 +741,10 @@ class CursedShape {
 var outCursed, vertCursed, rotationAngle, maxMag, cursedRot;
 function cursedDraw(){
 
-	cursedRot[3] += 1;
+	let frameDiff = (Date.now()-lastDisplay)/35;
+	lastDisplay = Date.now();
+
+	cursedRot[3] += frameDiff;
 	for (var fi = 0; fi < 3; fi++){
 		if (cursedFavorites[fav][2+4*fi] == 1){
 			var rotSpeed = [1,0.75,1.5];
@@ -750,7 +756,7 @@ function cursedDraw(){
 				shapes[fi].isvertex.splice(0,1);
 			}
 		} else if (cursedFavorites[fav][2+4*fi] == 2){
-			shapes[fi].radiusTheta += rotationAngle[fi]*2;
+			shapes[fi].radiusTheta += rotationAngle[fi]*2*frameDiff;
 			shapes[fi].radius = 2**(sin(shapes[fi].radiusTheta)*2);
 		}
 	}
@@ -871,6 +877,7 @@ function cursedPrep(){
 	scalar = unit;
 	maxMag = undefined;
     
+	lastDisplay = Date.now();
 }
 
 var scalar;

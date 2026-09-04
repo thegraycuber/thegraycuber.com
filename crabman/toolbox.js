@@ -304,6 +304,10 @@ function focusPoint(){
 	}
 }
 
+var menuLimit;
+function mouseOverMenu(){
+	return portrait ? focusPoint().y > menuLimit : focusPoint().x < menuLimit;
+}
 
 /*####################################
 

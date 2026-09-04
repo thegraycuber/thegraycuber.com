@@ -293,12 +293,6 @@ function deleteDigit(digitIndex = digits.length-1){
 	}
 }
 
-function mouseOverMenu(){
-	let pixelPos = principalToPixel(principalPos);
-	return portrait ? pixelPos.y > deleteLimit : pixelPos.x < deleteLimit;
-}
-
-
 var snapIsOn = true;
 function dropDigit(digitIsNew = false){
 

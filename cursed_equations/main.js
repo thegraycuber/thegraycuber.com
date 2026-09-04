@@ -6,6 +6,8 @@ var showVertices = true;
 var processFrame = true;
 var hideCanvas = false;
 
+var lastDisplay;
+
 function draw(){
 
 	iconChecks();
@@ -22,16 +24,19 @@ function draw(){
 	scale(scalar,-scalar);
 
 
+	let frameDiff = (Date.now()-lastDisplay)/35;
+	lastDisplay = Date.now();
+
 	for (let s = 0; s < shapes.length; s++){
 		if (shapes[s].animation == 'rotate'){
-			shapes[s].rotate(rotationAngle[s]);
+			shapes[s].rotate(rotationAngle[s]*frameDiff);
 		} else if (shapes[s].animation == 'radius'){
-			shapes[s].radiusTheta += rotationAngle[s]*2;
+			shapes[s].radiusTheta += rotationAngle[s]*2*frameDiff;
 			shapes[s].radius = 2**(sin(shapes[s].radiusTheta)*2);
 			processFrame = true;
 		} else if (shapes[s].animation == 'translate'){
-			shapes[s].transAng += 2.23*rotationAngle[s];
-			shapes[s].transRadAng += 3.07*rotationAngle[s];
+			shapes[s].transAng += 2.23*rotationAngle[s]*frameDiff;
+			shapes[s].transRadAng += 3.07*rotationAngle[s]*frameDiff;
 			processFrame = true;
 		}
 	}
@@ -113,7 +118,7 @@ function setup() {
 	popupList = ['paste-holder','copy-holder','info-holder','submitted-note','info-hide'];
 	popdownList = ['info-show','arrow-function','menu-hide'];
 
-		
+	lastDisplay = Date.now();
 }
 
 

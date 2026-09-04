@@ -9,13 +9,9 @@
 function touchStarted(){
 	if (mouseInMenu || hideCanvas){return;}
 	
-	if (!portrait){
-		let iLoc = idealLocation();
-		let iSqVar = createVector(mouseX, mouseY).sub(createVector(iLoc[0], iLoc[1]));
-		if (iSqVar.mag() < circleWidth*3){
-			iDragging = true;
-			iTouched = true;
-		}
+	if (!portrait && mouseOnIdeal()){
+		iDragging = true;
+		iTouched = true;
 	}
 	
 	
@@ -213,11 +209,27 @@ function updateIdeal(){
 			if (gameMode){
 				ideal = [constrain(ideal[0],-1,1),constrain(ideal[1],-1,1)];
 			}
+
+			document.body.style.cursor = 'grabbing';
+	
 		}
 		setIdeal(roundC(ideal,grid.scaleLog+roundAdd));
+
+	} else if (!mouseOverMenu() && mouseOnIdeal()){
+		document.body.style.cursor = 'grab';
+	} else {
+		document.body.style.cursor = 'default';
 	}
+
 	document.getElementById('ideal-desc').innerHTML = 'i² = ' + text2d(ideal,'i');
 }
+
+function mouseOnIdeal(){
+	let iLoc = idealLocation();
+	let iSqVar = createVector(mouseX, mouseY).sub(createVector(iLoc[0], iLoc[1]));
+	return iSqVar.mag() < circleWidth*3;
+}
+
 
 function setIdeal(idealToSet){
 
