@@ -1,7 +1,7 @@
 
-consolidate repeated css into core
-css file with variable aspect ratio for common controls
 custom highlight color
 improve the readme
 rename Controller
 favorites backwards
+consolidate repeated css into core
+css file with variable aspect ratio for common controls?

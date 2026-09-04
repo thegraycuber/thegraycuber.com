@@ -57,19 +57,11 @@ function fastestDraw(){
 
 var modulus, multiplier, crowConstant, equivalenceClasses;
 
-// var modList = [[5,0],[3,0],[5,0],[7,0],[7,0],[4,3],[3,1],[4,3]];
-// var multList = [[0,1],[-1,2],[-1,2],[2,-1],[-2,-1],[2,-1],[2,-2],[-4,5]];
-// var crowList = [-1,-2,-1,-11,-3,-1,-1,-1];
 
+var modList = [[10,11],[17,0],[7,12],[3,14],[17,4],[3,17],[11,3]];
+var multList = [[0,1],[2,-3],[-3,4],[-1,0],[-1,0],[1,-1],[-1,0]];
+var crowList = [-1,28,-1,-2,-2,-1,-3];
 
-var modList = [[10,11],[17,0],[7,12],[3,14],[17,4],[3,17],[11,0],[11,3],[2,3]];
-var multList = [[0,1],[2,-3],[-3,4],[-1,0],[-1,0],[1,-1],[-1,-4],[-1,0],[0,-1]];
-var crowList = [-1,28,-1,-2,-2,-1,-1,-3,-1];
-
-
-// var modList = [[7,18]];
-// var multList = [[0,-1]];
-// var crowList = [-1];
 
 
 function hexponentPrep(){
