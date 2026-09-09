@@ -5,3 +5,4 @@ rename Controller
 favorites backwards
 consolidate repeated css into core
 css file with variable aspect ratio for common controls?
+make lastFrame part of toolbox, morningRoutine
