@@ -1,0 +1,189 @@
+
+#svg-logo{
+	height: 7vmin;
+}
+
+.left-arrow, .right-arrow{
+	fill: var(--color-mono);
+	stroke: var(--color-mono);
+}
+
+body {
+	cursor: default;
+}
+
+#slider-weight::-webkit-slider-thumb {
+  background: var(--color-slider);
+}
+#slider-weight::-moz-range-thumb {
+  background: var(--color-slider);
+}
+
+#slider-weight:disabled::-webkit-slider-thumb {
+  background: var(--color-backlight);
+}
+#slider-weight:disabled::-webkit-slider-thumb {
+  background: var(--color-backlight);
+}
+
+:root{
+	--color-slider: #ffffff;
+}
+
+icon-menu{
+	flex-direction: column;
+}
+
+@media (min-aspect-ratio: 4/5){
+	.landscape-hidden{
+		display: none;
+	}
+	
+	body{
+		flex-direction: row;
+	}
+	
+	#menu-holder{
+		flex-direction: column;
+		width: 30vh;
+		min-width: 30vh;
+		gap: 1vh;
+		padding: 1.5vh;
+		border-width: 0 0.5vh 0 0;
+	}
+
+	general-menu{
+		flex-direction: row;
+	}
+
+	
+	arrow-holder{
+		height: 4vh;
+		margin: 1vh 3vh 2vh 3vh;
+		font-size: 4vh;
+	}
+	
+	arrow-label{
+		font-size: 1.8vh;
+		margin: 1vh 0 0 0;
+	}
+
+	icon-holder{
+		padding-top: 1vh;
+	}
+
+	.icon {
+		margin: 1vh;
+		max-width: 10vh;
+		height: 7vh;
+		font-size: 1.2vh;
+	}
+	
+	.icon-image {
+		height: 5vh;
+	}
+
+		
+	#menu-hide{
+		top: 1vh;
+		right: -6vh;
+	}
+	
+	#menu-show{
+		top: 1vh;
+		left: 1vh;
+		display: none;
+	}
+
+	.slider{
+		width: 20vh;
+	}
+
+
+}
+
+
+@media (max-aspect-ratio: 4/5){
+	.portrait-hidden{
+		display: none;
+	}
+	
+	body{
+		flex-direction: column-reverse;
+		justify-content: space-between;
+		height: 100%;
+	}
+	
+	#menu-holder{
+		flex-direction: row;
+		height: 40vw;
+		min-height: 40vw;
+		gap: 2vw;
+		padding: 2vw;
+		border-width: 0.6vw 0 0 0;
+	}
+	
+	general-menu{
+		flex-direction: column;
+		justify-content: space-around;
+		padding-bottom: 2vw;
+	}
+
+	#primary-menu{
+		width:37vw;
+	}
+	#selection-menu{
+		width:31vw;
+	}
+
+	arrow-holder{
+		height: 4vw;
+		margin: 0vw 4vw 2vw;
+		font-size: 5vw;
+	}
+
+	icon-holder{
+		padding-top: 1vw;
+	}
+	
+	arrow-label{
+		font-size: 2vw;
+		margin: 2vw 0 0 0;
+	}
+	
+	.icon {
+		margin: 1vw;
+		height: 10vw;
+		font-size: 1.5vw;
+	}
+	
+	.icon-image {
+		height: 7vw;
+	}
+
+
+	#svg-logo{
+		width: 15vw;
+	}
+
+	#menu-hide {
+		top: -5.5vh;
+		left: 1.5vh;
+	}
+	
+	#menu-show {
+		bottom: 1.5vh;
+		left: 1.5vh;
+		display: none;
+	}
+	
+	.menu-svg{
+		transform: rotate(270deg);
+	}
+
+	.slider{
+		width: 20vw;
+		height: 1vw;
+	}
+
+}

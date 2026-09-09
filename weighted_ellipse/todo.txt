@@ -1,0 +1,11 @@
+
+balance issue with one size 
+
+after ko-fi:
+    info section
+    cleanup
+    add link to index projects
+
+maybe:
+    re-enable smooth 
+    mousewheel changes weight?
